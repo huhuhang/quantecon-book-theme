@@ -1,49 +1,47 @@
-{%- extends "pydata_sphinx_theme/layout.html" %}
-
-{% block css %}
+{%- extends "pydata_sphinx_theme/layout.html" %} {% block css %}
 <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 {% if mathjax_version == 3 %}
 <script>
-    MathJax = {
-        loader: { load: ['[tex]/boldsymbol', '[tex]/textmacros'] },
-        tex: {
-            packages: { '[+]': ['boldsymbol', 'textmacros'] },
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            processEscapes: true,
-            macros: {
-                "argmax": "arg\\,max",
-                "argmin": "arg\\,min",
-                "col": "col",
-                "Span": "span",
-                "epsilon": "\\varepsilon",
-                "EE": "\\mathbb{E}",
-                "PP": "\\mathbb{P}",
-                "RR": "\\mathbb{R}",
-                "NN": "\\mathbb{N}",
-                "ZZ": "\\mathbb{Z}",
-                "aA": "\\mathcal{A}",
-                "bB": "\\mathcal{B}",
-                "cC": "\\mathcal{C}",
-                "dD": "\\mathcal{D}",
-                "eE": "\\mathcal{E}",
-                "fF": "\\mathcal{F}",
-                "gG": "\\mathcal{G}",
-                "hH": "\\mathcal{H}",
-            }
-        },
-        svg: {
-            fontCache: 'global',
-            scale: 0.92,
-            displayAlign: "center",
-        },
-    };
+  MathJax = {
+    loader: { load: ["[tex]/boldsymbol", "[tex]/textmacros"] },
+    tex: {
+      packages: { "[+]": ["boldsymbol", "textmacros"] },
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
+      processEscapes: true,
+      macros: {
+        argmax: "arg\\,max",
+        argmin: "arg\\,min",
+        col: "col",
+        Span: "span",
+        epsilon: "\\varepsilon",
+        EE: "\\mathbb{E}",
+        PP: "\\mathbb{P}",
+        RR: "\\mathbb{R}",
+        NN: "\\mathbb{N}",
+        ZZ: "\\mathbb{Z}",
+        aA: "\\mathcal{A}",
+        bB: "\\mathcal{B}",
+        cC: "\\mathcal{C}",
+        dD: "\\mathcal{D}",
+        eE: "\\mathcal{E}",
+        fF: "\\mathcal{F}",
+        gG: "\\mathcal{G}",
+        hH: "\\mathcal{H}",
+      },
+    },
+    svg: {
+      fontCache: "global",
+      scale: 0.92,
+      displayAlign: "center",
+    },
+  };
 </script>
-{% endif %}
-{{ super() }}
-{% endblock %}
-{% block extrahead %}
+{% endif %} {{ super() }} {% endblock %} {% block extrahead %}
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="{{ author | e }}" />
@@ -53,195 +51,238 @@
 <!-- Twitter tags -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@{{ theme_twitter | e }}" />
-<meta name="twitter:title" content="{% if pagetitle %}{{ pagetitle | e }}{% else %}{{ title | e }}{% endif %}" />
-<meta name="twitter:description" content="{{ theme_description | e }}">
-<meta name="twitter:creator" content="@{{ theme_twitter | e }}">
-<meta name="twitter:image" content="{{ theme_twitter_logo_url | e }}">
+<meta
+  name="twitter:title"
+  content="{% if pagetitle %}{{ pagetitle | e }}{% else %}{{ title | e }}{% endif %}"
+/>
+<meta name="twitter:description" content="{{ theme_description | e }}" />
+<meta name="twitter:creator" content="@{{ theme_twitter | e }}" />
+<meta name="twitter:image" content="{{ theme_twitter_logo_url | e }}" />
 
 <!-- Opengraph tags -->
-<meta property="og:title" content="{% if pagetitle %}{{ pagetitle | e }}{% else %}{{ docstitle | e }}{% endif %}" />
+<meta
+  property="og:title"
+  content="{% if pagetitle %}{{ pagetitle | e }}{% else %}{{ docstitle | e }}{% endif %}"
+/>
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{{ pageurl | e }}" />
 <meta property="og:image" content="{{ theme_og_logo_url | e }}" />
 <meta property="og:description" content="{{ theme_description | e }}" />
 <meta property="og:site_name" content="{{ docstitle | e }}" />
 <meta name="theme-color" content="#ffffff" />
-{% endblock %}
+{% endblock %} {# Silence the sidebar's, relbar's #} {% block header %}{%
+endblock %} {% block relbar1 %}{% endblock %} {% block relbar2 %}{% endblock %}
+{% block sidebarsourcelink %}{% endblock %} {% block body_tag %} <body{% if
+master_doc==pagename %} class="main-index" {% endif %}> {%- endblock %} {%-
+block content %}
 
-{# Silence the sidebar's, relbar's #}
-{% block header %}{% endblock %}
-{% block relbar1 %}{% endblock %}
-{% block relbar2 %}{% endblock %}
-{% block sidebarsourcelink %}{% endblock %}
+<span id="top"></span>
 
-{% block body_tag %}
-<body{% if master_doc==pagename %} class="main-index" {% endif %}>
-    {%- endblock %}
-    {%- block content %}
+<div class="qe-wrapper">
+  <div class="qe-main">
+    <div class="qe-page" id="{{pagename}}">
+      <div class="qe-page__toc">
+        <div class="inner">
+          {% set page_toc = generate_toc_html() %} {%- if page_toc | length >= 1
+          %}
+          <div class="qe-page__toc-header">导航</div>
+          {%- endif %}
 
+          <nav id="bd-toc-nav" class="qe-page__toc-nav">
+            {{ page_toc }}
+            <p class="logo">
+              {% if logo %} {% if theme_header_organisation_url %}
+              <a href="{{theme_header_organisation_url}}"
+                ><img
+                  src="{{ pathto('_static/' + logo, 1) }}"
+                  class="logo logo-img"
+                  alt="logo"
+              /></a>
+              {% if theme_dark_logo %}
+              <a href="{{theme_header_organisation_url}}"
+                ><img
+                  src="{{ pathto('_static/' + theme_dark_logo, 1) }}"
+                  class="dark-logo-img"
+                  alt="logo"
+              /></a>
+              {% endif %} {% else %}
+              <a href="{{ master_url }}"
+                ><img
+                  src="{{ pathto('_static/' + logo, 1) }}"
+                  class="logo"
+                  alt="logo"
+              /></a>
+              {% endif %} {% endif %}
+            </p>
+          </nav>
 
-    <span id="top"></span>
+          <div class="qe-page__toc-footer">
+            {# prev/next buttons #} {% macro prev_next(prev, next,
+            prev_title='', next_title='') %} {%- if next %}
+            <p>
+              <a
+                class="right-next"
+                id="next-link"
+                href="{{ next.link|e }}"
+                title="{{ _('next page')}}"
+                ><strong>下一个</strong><br />
+                {{ next_title or next.title }}</a
+              >
+            </p>
+            {%- endif %} {%- if prev %}
+            <p>
+              <a
+                class="left-prev"
+                id="prev-link"
+                href="{{ prev.link|e }}"
+                title="{{ _('previous page')}}"
+                ><strong>上一个</strong><br />
+                {{ prev_title or prev.title }}</a
+              >
+            </p>
+            {%- endif %} {% endmacro %}
+            <p>
+              <a href="#top"><strong>↑ 返回顶部</strong></a>
+            </p>
+          </div>
+        </div>
+      </div>
 
-    <div class="qe-wrapper">
+      <div class="qe-page__header">
+        <div class="qe-page__header-copy">
+          <p class="qe-page__header-heading">
+            <a href="{{ master_url }}">{{ docstitle | e }}</a>
+          </p>
 
-        <div class="qe-main">
+          <p class="qe-page__header-subheading">{{ pagetitle | e }}</p>
+        </div>
 
-            <div class="qe-page" id={{pagename}}>
+        <p class="qe-page__header-authors">{{ author }}</p>
+      </div>
+      <!-- .page__header -->
 
-                <div class="qe-page__toc">
-
-                    <div class="inner">
-
-                        {% set page_toc = generate_toc_html() %}
-
-                        {%- if page_toc | length >= 1 %}
-                        <div class="qe-page__toc-header">
-                            导航
-                        </div>
-                        {%- endif %}
-
-                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
-                            {{ page_toc }}
-                            <p class="logo">
-                                {% if logo %}
-                                {% if theme_header_organisation_url %}
-                                <a href={{theme_header_organisation_url}}><img src="{{ pathto('_static/' + logo, 1) }}"
-                                        class="logo logo-img" alt="logo"></a>
-                                {% if theme_dark_logo %}
-                                <a href={{theme_header_organisation_url}}><img
-                                        src="{{ pathto('_static/' + theme_dark_logo, 1) }}" class="dark-logo-img"
-                                        alt="logo"></a>
-                                {% endif %}
-                                {% else %}
-                                <a href="{{ master_url }}"><img src="{{ pathto('_static/' + logo, 1) }}" class="logo"
-                                        alt="logo"></a>
-                                {% endif %}
-                                {% endif %}
-                            </p>
-                        </nav>
-
-                        <div class="qe-page__toc-footer">
-                            {# prev/next buttons #}
-                            {% macro prev_next(prev, next, prev_title='', next_title='') %}
-                            {%- if next %}
-                            <p><a class='right-next' id="next-link" href="{{ next.link|e }}"
-                                    title="{{ _('next page')}}"><strong>下一个</strong><br>
-                                    {{ next_title or next.title }}</a></p>
-                            {%- endif %}
-                            {%- if prev %}
-                            <p><a class='left-prev' id="prev-link" href="{{ prev.link|e }}"
-                                    title="{{ _('previous page')}}"><strong>上一个</strong><br>
-                                    {{ prev_title or prev.title }}</a></p>
-                            {%- endif %}
-                            {% endmacro %}
-                            <p><a href="#top"><strong>↑ 返回顶部</strong></a></p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="qe-page__header">
-
-                    <div class="qe-page__header-copy">
-
-                        <p class="qe-page__header-heading"><a href="{{ master_url }}">{{ docstitle | e }}</a></p>
-
-                        <p class="qe-page__header-subheading">{{ pagetitle | e }}</p>
-
-                    </div>
-
-                    <p class="qe-page__header-authors">{{ author }}</p>
-
-                </div> <!-- .page__header -->
-
-
-
-                {% block docs_main %}
-                <main class="qe-page__content" role="main">
-                    {% block docs_body %}
-                    <div>
-                        {% block body %} {% endblock %}
-                    </div>
-                    {% endblock %}
-                </main> <!-- .page__content -->
-                {% endblock %}
-
-
-                <footer class="qe-page__footer">
-                    <p xmlns:cc="http://creativecommons.org/ns#">该作品由 <a href="https://twitter.com/huhuhang"
-                            target="_blank">{{
-                            author }}</a> 创作，基于 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans"
-                            target="_blank" rel="license noopener noreferrer"
-                            style="display:inline-block;">署名-非商业性使用-禁止演绎 4.0 国际</a>
-                        授权协议许可，请严格遵循。
-                    </p>
-                </footer> <!-- .page__footer -->
-
-            </div> <!-- .page -->
-
-            {% block docs_sidebar %}
-
-            {% if theme_persistent_sidebar is defined and theme_persistent_sidebar is sameas true %}
-            <div class="qe-sidebar bd-sidebar inactive persistent" id="site-navigation">
-                {%- else %}
-                <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
-                    {%- endif %}
-
-                    <div class="qe-sidebar__header">
-                        目录
-                    </div>
-
-                    <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
-                        {{ sbt_generate_toctree_html(include_item_names=False, with_home_page=theme_home_page_in_toc) }}
-                    </nav>
-
-                    <div class="qe-sidebar__footer">
-
-                    </div>
-
-                </div> <!-- .sidebar -->
-                {% endblock %}
-            </div> <!-- .main -->
-
-            <div class="qe-toolbar">
-
-                <div class="qe-toolbar__inner">
-
-                    <ul class="qe-toolbar__main">
-                        <li data-tippy-content="目录" class="btn__sidebar"><i data-feather="menu"></i></li>
-                        <li><a href="{{ master_url }}"><span>{{ theme_header_organisation}}</span></a></li>
-                    </ul>
-
-                    <ul class="qe-toolbar__links">
-                        <li class="btn__search">
-                            <form action="{{ pathto('search') }}" method="get">
-                                <input type="search" class="form-control" name="q" id="search-input"
-                                    placeholder="{{ theme_search_bar_text }}" aria-label="{{ theme_search_bar_text }}"
-                                    autocomplete="off" accesskey="k">
-                                <i data-feather="search" id="search-icon"></i>
-                            </form>
-                        </li>
-                        <li data-tippy-content="全屏" class="btn__fullscreen"><i data-feather="maximize"></i></li>
-                        <li data-tippy-content="增加字体大小" class="btn__plus"><i data-feather="plus-circle"></i>
-                        </li>
-                        <li data-tippy-content="减小字体大小" class="btn__minus"><i data-feather="minus-circle"></i></li>
-                        <li data-tippy-content="深色模式" class="btn__contrast"><i data-feather="sunset"></i>
-                        </li>
-                    </ul>
-
-                </div>
-
-            </div> <!-- .toolbar -->
-
-
-        </div> <!-- .wrapper-->
-        {%- block scripts_end %}
-        {%- endblock %}
-        {%- endblock %}
-
-        {% block docs_toc %}
+      {% block docs_main %}
+      <main class="qe-page__content" role="main">
+        {% block docs_body %}
+        <div>{% block body %} {% endblock %}</div>
         {% endblock %}
+        <div class="giscus"></div>
+      </main>
+      <!-- .page__content -->
+      {% endblock %}
 
-        {%- block footer %}
-        {%- endblock %}
+      <footer class="qe-page__footer">
+        <p xmlns:cc="http://creativecommons.org/ns#">
+          该作品由
+          <a href="https://twitter.com/huhuhang" target="_blank"
+            >{{ author }}</a
+          >
+          创作，基于
+          <a
+            href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans"
+            target="_blank"
+            rel="license noopener noreferrer"
+            style="display: inline-block"
+            >署名-非商业性使用-禁止演绎 4.0 国际</a
+          >
+          授权协议许可，请严格遵循。
+        </p>
+      </footer>
+      <!-- .page__footer -->
+    </div>
+    <!-- .page -->
+
+    {% block docs_sidebar %} {% if theme_persistent_sidebar is defined and
+    theme_persistent_sidebar is sameas true %}
+    <div class="qe-sidebar bd-sidebar inactive persistent" id="site-navigation">
+      {%- else %}
+      <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+        {%- endif %}
+
+        <div class="qe-sidebar__header">目录</div>
+
+        <nav
+          class="qe-sidebar__nav"
+          id="qe-sidebar-nav"
+          aria-label="Main navigation"
+        >
+          {{ sbt_generate_toctree_html(include_item_names=False,
+          with_home_page=theme_home_page_in_toc) }}
+        </nav>
+
+        <div class="qe-sidebar__footer"></div>
+      </div>
+      <!-- .sidebar -->
+      {% endblock %}
+    </div>
+    <!-- .main -->
+
+    <div class="qe-toolbar">
+      <div class="qe-toolbar__inner">
+        <ul class="qe-toolbar__main">
+          <li data-tippy-content="目录" class="btn__sidebar">
+            <i data-feather="menu"></i>
+          </li>
+          <li>
+            <a href="{{ master_url }}"
+              ><span>{{ theme_header_organisation}}</span></a
+            >
+          </li>
+        </ul>
+
+        <ul class="qe-toolbar__links">
+          <li class="btn__search">
+            <form action="{{ pathto('search') }}" method="get">
+              <input
+                type="search"
+                class="form-control"
+                name="q"
+                id="search-input"
+                placeholder="{{ theme_search_bar_text }}"
+                aria-label="{{ theme_search_bar_text }}"
+                autocomplete="off"
+                accesskey="k"
+              />
+              <i data-feather="search" id="search-icon"></i>
+            </form>
+          </li>
+          <li data-tippy-content="全屏" class="btn__fullscreen">
+            <i data-feather="maximize"></i>
+          </li>
+          <li data-tippy-content="增加字体大小" class="btn__plus">
+            <i data-feather="plus-circle"></i>
+          </li>
+          <li data-tippy-content="减小字体大小" class="btn__minus">
+            <i data-feather="minus-circle"></i>
+          </li>
+          <li data-tippy-content="深色模式" class="btn__contrast">
+            <i data-feather="sunset"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- .toolbar -->
+  </div>
+  <!-- .wrapper-->
+
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="huhuhang/hands-on-ai-feedback"
+    data-repo-id="R_kgDOKrSOWw"
+    data-category="General"
+    data-category-id="DIC_kwDOKrSOW84CdVV4"
+    data-mapping="og:title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+
+  {%- block scripts_end %} {%- endblock %} {%- endblock %} {% block docs_toc %}
+  {% endblock %} {%- block footer %} {%- endblock %}
+</div>
