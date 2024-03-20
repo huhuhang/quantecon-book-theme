@@ -5,8 +5,8 @@ IMPORTS
 */
 
 @import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.7.0/style.css");
-@import url("https://cdn.huhuhang.com/fonts/Merriweather.css");
-@import url("https://cdn.huhuhang.com/fonts/SmileySans.css");
+@import url("https://cdn.aibydoing.com/fonts/Merriweather2.css");
+@import url("https://cdn.aibydoing.com/fonts/SmileySans2.css");
 
 $breakpoint-xl: 1200px;
 $breakpoint-lg: 992px;
@@ -84,8 +84,7 @@ body {
   font-weight: 400;
   padding-top: 0px;
   color: #444;
-  font-family: "Merriweather", "LXGW WenKai Lite", -apple-system,
-    "Microsoft Yahei";
+  font-family: "LXGW WenKai Lite", -apple-system, "Microsoft Yahei";
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1214,7 +1213,7 @@ div.cell {
 .bd-sidebar .nav {
   li > a {
     padding: 0px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     &:hover {
       text-decoration: underline;
     }
