@@ -225,7 +225,10 @@ body {
       box-shadow: none !important;
     }
 
-    blockquote,
+    blockquote {
+      background-color: #111 !important;
+    }
+
     blockquote p {
       color: #fff;
     }
