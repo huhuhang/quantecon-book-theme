@@ -304,8 +304,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Merriweather", "Smiley Sans Oblique", -apple-system,
-    "Microsoft Yahei" !important;
+  font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
 }
 
 h1 {
@@ -340,8 +339,7 @@ h3,
 h4,
 h5 {
   font-weight: normal;
-  font-family: "Merriweather", "Smiley Sans Oblique", -apple-system,
-    "Microsoft Yahei" !important;
+  font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
   color: #444;
 }
 
@@ -360,7 +358,6 @@ h3 {
 
 h4 {
   font-size: 1.2rem;
-  font-family: "Source Sans Pro", sans-serif;
   color: #000;
 }
 
@@ -436,8 +433,7 @@ tt {
   z-index: 2;
   background-color: #efefef;
   border-bottom: 1px solid #ccc;
-  font-family: "Merriweather", "Smiley Sans Oblique", -apple-system,
-    "Microsoft Yahei" !important;
+  font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
 
   &__inner {
     //max-width: calc(1320px + 6rem);
@@ -597,6 +593,7 @@ tt {
     .inner {
       position: sticky;
       top: 6rem;
+      font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
     }
 
     &-header {
@@ -744,10 +741,9 @@ tt {
 
 .main-index {
   h1 {
-    border-bottom: 5px solid #0072bc;
+    border-bottom: 2px solid #0072bc;
     margin: 0 0 2rem 0;
     padding: 0 0 1rem 0;
-    font-weight: 700;
   }
 }
 
@@ -790,7 +786,7 @@ tt {
 
   &__header {
     margin: 0 0 1rem 0;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
     font-weight: 700;
     font-size: 1rem;
   }
@@ -826,8 +822,7 @@ tt {
     /* tableofcontents directive caption option */
     .caption-text {
       font-weight: normal;
-      font-family: "Merriweather", "Smiley Sans Oblique", -apple-system,
-        "Microsoft Yahei" !important;
+      font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
     }
     .caption {
       margin-top: 1rem;
@@ -998,7 +993,7 @@ tt {
     color: #555;
     margin-left: 6px;
     padding: 0 4px 0 4px;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
     font-size: 0.8em;
   }
 
@@ -1062,7 +1057,7 @@ tt {
     color: #555;
     margin-left: 6px;
     padding: 0 4px 0 4px;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
     font-size: 0.8rem;
   }
 
@@ -1624,8 +1619,7 @@ dl.attribute {
 .toctree-wrapper {
   .caption-text {
     font-weight: normal;
-    font-family: "Merriweather", "Smiley Sans Oblique", -apple-system,
-      "Microsoft Yahei" !important;
+    font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
     font-size: 1.2rem;
   }
 }
