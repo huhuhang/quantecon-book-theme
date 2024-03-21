@@ -7,6 +7,7 @@ IMPORTS
 @import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.7.0/style.css");
 @import url("https://cdn.aibydoing.com/fonts/Merriweather2.css");
 @import url("https://cdn.aibydoing.com/fonts/SmileySans2.css");
+@import url("https://cdn.aibydoing.com/fonts/IBMPlexMono2.css");
 
 $breakpoint-xl: 1200px;
 $breakpoint-lg: 992px;
@@ -83,8 +84,9 @@ body {
   line-height: 1.5;
   font-weight: 400;
   padding-top: 0px;
-  color: #444;
-  font-family: "LXGW WenKai Lite", -apple-system, "Microsoft Yahei";
+  color: #111;
+  font-family: "Merriweather", "LXGW WenKai Lite", -apple-system,
+    "Microsoft Yahei";
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -104,8 +106,8 @@ body {
   }
 
   &.dark-theme {
-    background: #222;
-    color: #fff;
+    background: #111;
+    color: #fff !important;
 
     a,
     h1,
@@ -114,12 +116,12 @@ body {
     h4,
     h5,
     p {
-      color: #fff;
+      color: #fff !important;
     }
 
     .qe-toolbar__inner > ul > li > a,
     .qe-sidebar__nav ul > li > a {
-      color: #fff;
+      color: #fff !important;
     }
 
     cite,
@@ -145,7 +147,7 @@ body {
       background: #111 !important;
       .n,
       .p {
-        color: #fff;
+        color: #fff !important;
       }
     }
 
@@ -160,12 +162,12 @@ body {
     .drawer,
     .qe-sidebar,
     .drawer .inner {
-      background: #444;
+      background: #111;
     }
 
     .btn__search {
       input {
-        background-color: #333;
+        background-color: #111;
         color: #fff;
 
         &:focus {
@@ -193,22 +195,22 @@ body {
     }
 
     nav.contents {
-      background-color: #333;
+      background-color: #111;
     }
 
     div.admonition,
     .admonition {
-      background-color: #333;
+      background-color: #111;
       box-shadow: none !important;
     }
 
     pre {
-      background-color: #333;
+      background-color: #111;
       color: #fff;
     }
 
     aside.sidebar {
-      background-color: #333;
+      background-color: #111;
     }
 
     button.toggle-button.toggle-button-hidden::before {
@@ -219,7 +221,7 @@ body {
     div.topic,
     div.topic.contents,
     nav.contents {
-      background-color: #333;
+      background-color: #111;
       box-shadow: none !important;
     }
 
@@ -229,17 +231,17 @@ body {
     }
 
     table tbody .row-even p {
-      color: #333;
+      color: #111;
     }
 
     div.cell details.below-input > summary,
     div.cell div.cell_input,
     div.cell details.above-input > summary {
-      background-color: #333;
+      background-color: #111;
     }
 
     .tippy-box {
-      background-color: #333;
+      background-color: #111;
     }
 
     .bd-search-container ul.search li div.context,
@@ -248,7 +250,7 @@ body {
     }
 
     .qe-toolbar__inner > ul > li.btn__search input {
-      background-color: #333;
+      background-color: #111;
       color: #fff;
     }
 
@@ -335,7 +337,8 @@ h3,
 h4,
 h5 {
   font-weight: normal;
-  font-family: "PT Serif", serif;
+  font-family: "Merriweather", "Smiley Sans Oblique", -apple-system,
+    "Microsoft Yahei" !important;
   color: #444;
 }
 
@@ -387,6 +390,8 @@ pre {
   font-size: 0.9rem;
   white-space: pre-wrap;
   word-wrap: break-word;
+  font-family: "IBM Plex Mono", "Smiley Sans Oblique", -apple-system,
+    "Microsoft Yahei" !important;
 }
 
 cite,
@@ -421,13 +426,15 @@ tt {
 }
 
 .qe-toolbar {
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   padding: 0 1rem;
   z-index: 2;
   background-color: #efefef;
   border-bottom: 1px solid #ccc;
+  font-family: "Merriweather", "Smiley Sans Oblique", -apple-system,
+    "Microsoft Yahei" !important;
 
   &__inner {
     //max-width: calc(1320px + 6rem);
@@ -578,11 +585,11 @@ tt {
     }
 
     position: absolute;
-    right: calc(-200px - 3rem);
+    right: calc(-300px - 3rem);
     top: 0;
     margin: 0;
     height: 100%;
-    width: 200px;
+    width: 300px;
 
     .inner {
       position: sticky;
@@ -742,7 +749,6 @@ tt {
 }
 
 .qe-sidebar {
-  //position: absolute;
   top: 0px;
   left: 0px;
   z-index: 1;
@@ -750,13 +756,12 @@ tt {
   padding: 2rem;
   margin: 0;
   border-right: 1px solid #ccc;
-  //height: 100%;
-  width: 250px;
+  width: 350px !important;
   transform: translate3d(0px, 0px, 0px);
   visibility: visible;
   transition: all 0.2s ease 0s;
   height: 100vh;
-  overflow-y: scroll;
+  overflow: scroll;
   position: fixed;
   padding-top: 5rem;
 
@@ -818,8 +823,8 @@ tt {
     /* tableofcontents directive caption option */
     .caption-text {
       font-weight: normal;
-      font-family: "PT Serif", serif;
-      //font-size: 1.7rem;
+      font-family: "Merriweather", "Smiley Sans Oblique", -apple-system,
+        "Microsoft Yahei" !important;
     }
     .caption {
       margin-top: 1rem;
@@ -1616,11 +1621,16 @@ dl.attribute {
 .toctree-wrapper {
   .caption-text {
     font-weight: normal;
-    font-family: "PT Serif", serif;
+    font-family: "Merriweather", "Smiley Sans Oblique", -apple-system,
+      "Microsoft Yahei" !important;
     font-size: 1.2rem;
   }
 }
 
 .toctree-wrapper li[class^="toctree-l"] > a {
   font-size: 1em !important;
+}
+
+.giscus {
+  margin-top: 20px !important;
 }
