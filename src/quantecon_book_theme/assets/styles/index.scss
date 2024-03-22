@@ -105,6 +105,10 @@ body {
     display: none;
   }
 
+  div.cell div.cell_input {
+    border: 2px solid var(--note-border-color);
+  }
+
   &.dark-theme {
     background: #111;
     color: #fff !important;
@@ -237,8 +241,11 @@ body {
       color: #111;
     }
 
-    div.cell details.below-input > summary,
-    div.cell div.cell_input,
+    div.cell details.below-input > summary {
+    }
+    div.cell div.cell_input {
+      border: 2px solid #fff;
+    }
     div.cell details.above-input > summary {
       background-color: #111;
     }
@@ -371,7 +378,7 @@ li {
 }
 
 a {
-  color: #0072bc;
+  color: var(color-primary);
   text-decoration: none;
   transition: all 0.15s linear;
   overflow-wrap: break-word;
@@ -731,7 +738,7 @@ tt {
   }
 
   &__footer {
-    border-top: 2px solid #0072bc;
+    border-top: 2px solid var(color-primary);
     margin: 2rem 0;
     padding: 1rem 0 0 0;
     font-size: 0.8rem;
@@ -742,7 +749,7 @@ tt {
 
 .main-index {
   h1 {
-    border-bottom: 2px solid #0072bc;
+    border-bottom: 2px solid var(color-primary);
     margin: 0 0 2rem 0;
     padding: 0 0 1rem 0;
   }
@@ -935,15 +942,15 @@ tt {
     margin: 1.5rem auto;
     padding: 0 1rem 0.5rem 1rem;
     page-break-inside: avoid;
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1),
-      0 0 0.05rem rgba(0, 0, 0, 0.1);
+    box-shadow: unset !important;
+    border: 2px solid var(--grey-border-color);
 
     .admonition-title {
       position: relative;
       margin: 0 -1rem;
       padding: 0.25rem 2rem;
       font-weight: 700;
-      background-color: #0072bc26;
+      background-color: var(color-primary);
     }
   }
 
@@ -1087,7 +1094,7 @@ tt {
   }
 
   a .math {
-    color: #0072bc;
+    color: var(color-primary);
   }
 
   div.math {
@@ -1099,7 +1106,7 @@ tt {
   }
 
   a .MathJax {
-    color: #0072bc;
+    color: var(color-primary);
   }
 
   .figure {
@@ -1233,7 +1240,7 @@ div.cell {
   }
   p {
     margin: 0rem;
-    color: #0072bc;
+    color: var(color-primary);
     &:hover {
       text-decoration: underline;
       cursor: pointer;
