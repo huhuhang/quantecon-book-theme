@@ -106,7 +106,7 @@ body {
   }
 
   div.cell div.cell_input {
-    border: 2px solid var(--note-border-color);
+    border: 2px solid var(--grey-border-color);
   }
 
   &.dark-theme {
@@ -241,8 +241,6 @@ body {
       color: #111;
     }
 
-    div.cell details.below-input > summary {
-    }
     div.cell div.cell_input {
       border: 2px solid #fff;
     }
@@ -557,8 +555,6 @@ tt {
 
         &.btn__sidebar {
           margin-left: 1rem;
-          svg {
-          }
         }
 
         svg {
@@ -674,7 +670,7 @@ tt {
       display: none;
     }
 
-    border-bottom: 2px solid $color-primary;
+    border-bottom: 2px solid var(--grey-border-color);
     margin: 0 0 4rem 0;
     padding: 0 0 1rem 0;
     font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
@@ -736,7 +732,7 @@ tt {
   }
 
   &__footer {
-    border-top: 2px solid $color-primary;
+    border-top: 2px solid var(--grey-border-color);
     margin: 2rem 0;
     padding: 1rem 0 0 0;
     font-size: 0.8rem;
@@ -747,7 +743,7 @@ tt {
 
 .main-index {
   h1 {
-    border-bottom: 2px solid $color-primary;
+    border-bottom: 2px solid var(--grey-border-color);
     margin: 0 0 2rem 0;
     padding: 0 0 1rem 0;
   }
@@ -939,7 +935,7 @@ tt {
     padding: 0 1rem 0.5rem 1rem;
     page-break-inside: avoid;
     box-shadow: unset !important;
-    border: 2px solid var(--grey-border-color);
+    border: 2px solid var(--note-title-color);
 
     .admonition-title {
       position: relative;
