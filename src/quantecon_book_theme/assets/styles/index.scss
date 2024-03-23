@@ -436,8 +436,8 @@ tt {
   transform: translateX(-50%);
   top: 1rem;
   z-index: 2;
-  background-color: rgba(239, 239, 239, 0.5);
-  border: 1px solid rgba(204, 204, 204, 0.5);
+  background-color: rgba(239, 239, 239, 0.4);
+  border: 2px solid rgba(204, 204, 204, 0.4);
   border-radius: 50px;
   font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
   backdrop-filter: blur(10px);
@@ -523,7 +523,7 @@ tt {
             visibility: hidden;
             transition: width 0.3s;
             &.search-open {
-              width: 350px;
+              width: 200px;
               visibility: visible;
             }
             &:focus {
@@ -753,7 +753,6 @@ tt {
   top: 0px;
   left: 0px;
   z-index: 1;
-  background-color: #efefef;
   padding: 2rem 2rem;
   margin: 0;
   transform: translate3d(0px, 0px, 0px);
@@ -762,6 +761,9 @@ tt {
   height: 100vh;
   overflow: scroll;
   position: fixed;
+  background-color: rgba(239, 239, 239, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   @media (max-width: 1340px) {
     box-shadow: 10px 10px 5px 9999px rgba(255, 255, 255, 0.8);
