@@ -378,7 +378,7 @@ li {
 }
 
 a {
-  color: var(color-primary);
+  color: $color-primary;
   text-decoration: none;
   transition: all 0.15s linear;
   overflow-wrap: break-word;
@@ -429,21 +429,24 @@ tt {
   justify-content: center;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 4rem;
+  padding-top: 6rem;
 }
 
 .qe-toolbar {
   position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 0 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1rem;
   z-index: 2;
-  background-color: #efefef;
-  border-bottom: 1px solid #ccc;
+  background-color: rgba(239, 239, 239, 0.5);
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  border-radius: 50px;
   font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   &__inner {
-    //max-width: calc(1320px + 6rem);
+    max-width: calc(1320px + 6rem);
     margin: 0 auto 0 auto;
     height: 50px;
     line-height: 1;
@@ -457,8 +460,7 @@ tt {
       display: flex;
       align-items: center;
       > li {
-        margin: 0 10px;
-        padding: 0;
+        padding: 1rem 1rem;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
         opacity: 0.8;
@@ -497,7 +499,7 @@ tt {
 
         &.btn__contrast {
           opacity: 0.5;
-          margin-right: 2rem;
+          margin-right: 1rem;
         }
 
         &.btn__fullscreen {
@@ -513,12 +515,11 @@ tt {
             height: auto;
             display: inline-block;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 50px;
             background-color: #f8f8f8;
             margin: 0 -28px 0 0;
             line-height: 1;
             font-size: 0.9rem;
-            padding: 0.3rem 0.5rem;
             outline: 0;
             width: 0;
             visibility: hidden;
@@ -543,7 +544,6 @@ tt {
             background-color: transparent;
             z-index: 999;
             top: -1px;
-            left: -4px;
           }
 
           &:hover {
@@ -556,6 +556,7 @@ tt {
         }
 
         &.btn__sidebar {
+          margin-left: 1rem;
           svg {
           }
         }
@@ -566,9 +567,6 @@ tt {
         }
 
         @media (max-width: $breakpoint-sm) {
-          &.btn__plus,
-          &.btn__minus,
-          &.btn__fullscreen,
           &.btn__search {
             display: none;
           }
@@ -738,7 +736,7 @@ tt {
   }
 
   &__footer {
-    border-top: 2px solid var(color-primary);
+    border-top: 2px solid $color-primary;
     margin: 2rem 0;
     padding: 1rem 0 0 0;
     font-size: 0.8rem;
@@ -749,7 +747,7 @@ tt {
 
 .main-index {
   h1 {
-    border-bottom: 2px solid var(color-primary);
+    border-bottom: 2px solid $color-primary;
     margin: 0 0 2rem 0;
     padding: 0 0 1rem 0;
   }
@@ -759,30 +757,28 @@ tt {
   top: 0px;
   left: 0px;
   z-index: 1;
-  background-color: #fff;
-  padding: 2rem;
+  background-color: #efefef;
+  padding: 2rem 2rem;
   margin: 0;
-  border-right: 1px solid #ccc;
-  width: 350px !important;
   transform: translate3d(0px, 0px, 0px);
   visibility: visible;
   transition: all 0.2s ease 0s;
   height: 100vh;
   overflow: scroll;
   position: fixed;
-  padding-top: 5rem;
 
   @media (max-width: 1340px) {
     box-shadow: 10px 10px 5px 9999px rgba(255, 255, 255, 0.8);
     width: 300px;
+    padding-top: 6rem;
   }
 
   @media (min-width: 1439px) {
-    width: 300px;
+    width: 300px !important;
   }
 
   @media (min-width: 1600px) {
-    width: 350px;
+    width: 350px !important;
   }
 
   &.inactive {
@@ -950,7 +946,7 @@ tt {
       margin: 0 -1rem;
       padding: 0.25rem 2rem;
       font-weight: 700;
-      background-color: var(color-primary);
+      background-color: var(--note-title-color);
     }
   }
 
@@ -1094,7 +1090,7 @@ tt {
   }
 
   a .math {
-    color: var(color-primary);
+    color: $color-primary;
   }
 
   div.math {
@@ -1106,7 +1102,7 @@ tt {
   }
 
   a .MathJax {
-    color: var(color-primary);
+    color: $color-primary;
   }
 
   .figure {
@@ -1240,7 +1236,7 @@ div.cell {
   }
   p {
     margin: 0rem;
-    color: var(color-primary);
+    color: $color-primary;
     &:hover {
       text-decoration: underline;
       cursor: pointer;
