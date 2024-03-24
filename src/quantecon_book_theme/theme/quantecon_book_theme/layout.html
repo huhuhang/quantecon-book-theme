@@ -81,21 +81,14 @@ block content %}
 
 <section style="top: 0; left: 0; width: 100%; height: 100%;">
   <css-doodle click-to-update><style>
-    @grid: 1x15 / 100% 10vmax 1 / #091608;
-    @gap: calc(50%/@I);
-    background-blend-mode: multiply;
-    background-size: 110% 100%;
-    background-image:
-      @doodle(
-        background: #fff;
-        filter: @svg-filter(.8);
-        opacity: .6;
-      ),
-      linear-gradient(
-        90deg,
-        @p(#14ff2e, #f452ea) @rn(±100%, 5, 2),
-        #091608, @P
-      );
+    --c: #fff;
+    :doodle {
+      @grid: 1x10 / 100% 12vmax 0 / #0800ff;
+      border-bottom: 0px solid @p(--c);
+    }
+    height: calc(@i * 1px);
+    margin-bottom: 1px;
+    background: @p;
   </style></css-doodle>
 </section>
 
