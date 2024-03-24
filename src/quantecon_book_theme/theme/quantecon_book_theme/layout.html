@@ -2,6 +2,7 @@
 <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.38.4/css-doodle.min.js"></script>
 {% if mathjax_version == 3 %}
 <script>
   MathJax = {
@@ -77,6 +78,26 @@ master_doc==pagename %} class="main-index" {% endif %}> {%- endblock %} {%-
 block content %}
 
 <span id="top"></span>
+
+<section style="top: 0; left: 0; width: 100%; height: 100%;">
+  <css-doodle click-to-update><style>
+    @grid: 1x15 / 100% 20vmin 1 / #091608;
+    @gap: calc(50%/@I);
+    background-blend-mode: multiply;
+    background-size: 110% 100%;
+    background-image:
+      @doodle(
+        background: #fff;
+        filter: @svg-filter(.8);
+        opacity: .6;
+      ),
+      linear-gradient(
+        90deg,
+        @p(#14ff2e, #f452ea) @rn(±100%, 5, 2),
+        #091608, @P
+      );
+  </style></css-doodle>
+</section>
 
 <div class="qe-wrapper">
   <div class="qe-main">
