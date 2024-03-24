@@ -563,6 +563,7 @@ tt {
         }
 
         @media (max-width: $breakpoint-sm) {
+          &.btn__fullscreen,
           &.btn__search {
             display: none;
           }
@@ -842,10 +843,6 @@ tt {
 
 .bd-search {
   background-color: #eff1f2;
-  border-bottom: 0;
-  margin: 0 -2rem 0 -2rem;
-  padding: 2rem;
-  width: calc(100% + 4rem);
   position: relative;
 
   .form-control {
@@ -858,18 +855,7 @@ tt {
   }
 
   svg {
-    transform: scaleX(-1);
     color: #7f888f;
-    cursor: default;
-    display: block;
-    //font-size: 1.5em;
-    height: 2.75rem;
-    //line-height: 2em;
-    opacity: 0.325;
-    position: absolute;
-    right: 2.75rem;
-    text-align: center;
-    top: 2rem;
   }
 
   .search-button__kbd-shortcut {
@@ -1031,21 +1017,6 @@ tt {
     left: -55px;
     width: 45px;
   }
-
-  // .cell .output .prompt:before,
-  // .cell .input .prompt:before {
-  //   visibility: visible;
-  //   position: absolute;
-  //   top: 0rem;
-  //   right: 0;
-  //   content: 'Out';
-  //   font-weight: bold;
-  //   font-size: 16px;
-  //   text-align: right;
-  //   color: #d84315;
-  //   font-family: monospace, serif;
-  //   font-weight: 400;
-  // }
 
   .cell .input .prompt:before {
     content: "In";
