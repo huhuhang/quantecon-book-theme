@@ -2,7 +2,6 @@
 <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.38.4/css-doodle.min.js"></script>
 {% if mathjax_version == 3 %}
 <script>
   MathJax = {
@@ -78,43 +77,6 @@ master_doc==pagename %} class="main-index" {% endif %}> {%- endblock %} {%-
 block content %}
 
 <span id="top"></span>
-
-<section style="top: 0; left: 0; width: 100%; height: 100%;">
-  <css-doodle click-to-update>
-    <style>
-      @grid: 20x1 / 100% 12vmax 1 /  + 1.25 ~ -0% 50%;
-      @place: center;
-      @size: calc(40px * @i - 16px);
-
-      z-index: @I(-@i);
-      rotate: @r(360deg);
-      border: 4px solid #090C27;
-      border-radius: 50%;
-      transition: @r(.5, 1s);
-      background: conic-gradient(
-        #f91c8e, #f4947e, #d6d348,
-        #aea6e8, #38004c, #38004c
-      );
-
-      :after {
-        content: '';
-        position: absolute;
-        top: 0;
-        @size: 16px;
-        border-radius: 50%;
-        background: radial-gradient(
-          farthest-side at 20% 20%,
-          #fff, #F9208E
-        )
-      }
-
-      @nth(1) {
-        background: #090C27;
-        :after { content: none; }
-      }
-    </style>
-  </css-doodle>
-</section>
 
 <div class="qe-wrapper">
   <div class="qe-main">
