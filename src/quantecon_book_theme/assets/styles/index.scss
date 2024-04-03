@@ -288,6 +288,11 @@ body {
     .cell_output .output.stderr {
       border: 0rem;
     }
+
+    .alert {
+      background-color: unset !important;
+      color: #fff !important;
+    }
   }
 }
 
