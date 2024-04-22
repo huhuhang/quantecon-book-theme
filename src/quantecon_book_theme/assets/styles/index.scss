@@ -509,8 +509,7 @@ tt {
         }
 
         &.btn__search {
-          display: none !important;
-          // display: flex;
+          display: flex;
           align-items: center;
           //margin: 0 3rem 0 1rem;
           input {
