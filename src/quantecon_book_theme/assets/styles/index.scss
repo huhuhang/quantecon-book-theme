@@ -509,9 +509,9 @@ tt {
         }
 
         &.btn__search {
-          display: flex;
+          display: none !important;
+          // display: flex;
           align-items: center;
-
           //margin: 0 3rem 0 1rem;
           input {
             height: auto;
