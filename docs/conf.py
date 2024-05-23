@@ -41,6 +41,9 @@ nitpick_ignore = [
 
 numfig = True
 
+# specifying the natural language populates some key tags
+language = "zh-CN"
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
