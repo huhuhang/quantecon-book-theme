@@ -117,30 +117,6 @@ block content %}
           </nav>
 
           <div class="qe-page__toc-footer">
-            {# prev/next buttons #} {% macro prev_next(prev, next,
-            prev_title='', next_title='') %} {%- if next %}
-            <p>
-              <a
-                class="right-next"
-                id="next-link"
-                href="{{ next.link|e }}"
-                title="{{ _('next page')}}"
-                ><strong>下一个</strong><br />
-                {{ next_title or next.title }}</a
-              >
-            </p>
-            {%- endif %} {%- if prev %}
-            <p>
-              <a
-                class="left-prev"
-                id="prev-link"
-                href="{{ prev.link|e }}"
-                title="{{ _('previous page')}}"
-                ><strong>上一个</strong><br />
-                {{ prev_title or prev.title }}</a
-              >
-            </p>
-            {%- endif %} {% endmacro %}
             <p>
               <a href="#top"><strong>↑ 返回顶部</strong></a>
             </p>
@@ -168,8 +144,32 @@ block content %}
         {% block docs_body %}
         <div>{% block body %} {% endblock %}</div>
         {% endblock %}
-        <div class="alert alert-warning" role="alert" style="text-align: center;">
+        <div class="alert alert-success" role="alert" style="text-align: center;">
           <p>如果你觉得这些内容对你有帮助，可以通过 <a class="reference external" href="https://cdn.jsdelivr.net/gh/huhuhang/cdn@master/images/2024/04/1711962409258.jpg">微信赞赏码</a> 或者 <a class="reference external" href="https://www.buymeacoffee.com/5ve3dkl">Buy Me a Coffee</a> 请我喝杯咖啡。</p>
+        </div>
+        <div class="prev-next-area">
+          {%- if prev %}
+            <a class="left-prev"
+               href="{{ prev.link|e }}"
+               title="{{ _('previous page') }}">
+              <i class="fa-solid fa-angle-left"></i>
+              <div class="prev-next-info">
+                <p class="prev-next-subtitle">{{ _("上一章") }}</p>
+                <p class="prev-next-title">{{ prev_title or prev.title }}</p>
+              </div>
+            </a>
+          {%- endif %}
+          {%- if next %}
+            <a class="right-next"
+               href="{{ next.link|e }}"
+               title="{{ _('next page') }}">
+              <div class="prev-next-info">
+                <p class="prev-next-subtitle">{{ _("下一章") }}</p>
+                <p class="prev-next-title">{{ next_title or next.title }}</p>
+              </div>
+              <i class="fa-solid fa-angle-right"></i>
+            </a>
+          {%- endif %}
         </div>
         <div class="giscus"></div>
       </main>

@@ -404,6 +404,16 @@ pre {
     "Microsoft Yahei" !important;
 }
 
+.prev-next-area {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 0px;
+}
+
+.prev-next-area a p.prev-next-title {
+  text-decoration: unset !important;
+}
+
 cite,
 code,
 tt {
