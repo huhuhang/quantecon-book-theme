@@ -52,7 +52,7 @@ language = "zh-CN"
 html_theme = "quantecon_book_theme"
 html_logo = "_static/qe-logo.png"
 html_title = "Quantecon Book Theme"
-html_copy_source = True
+html_copy_source = False
 html_sourcelink_suffix = ""
 html_favicon = "_static/qe-logo.png"
 

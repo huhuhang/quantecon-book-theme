@@ -14,7 +14,7 @@ master_doc = "index"
 extensions = ["myst_nb", "sphinx_togglebutton", "sphinx_thebe"]
 html_theme = "quantecon_book_theme"
 html_baseurl = "https://sphinx-book-theme.readthedocs.org"
-html_copy_source = True
+html_copy_source = False
 html_sourcelink_suffix = ""
 nb_execution_mode = "auto"
 

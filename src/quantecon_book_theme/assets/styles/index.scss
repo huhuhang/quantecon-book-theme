@@ -106,7 +106,7 @@ body {
   }
 
   div.cell div.cell_input {
-    border: 2px solid var(--grey-border-color);
+    border: 1px solid var(--grey-border-color);
   }
 
   &.dark-theme {
@@ -242,7 +242,7 @@ body {
     }
 
     div.cell div.cell_input {
-      border: 2px solid #fff;
+      border: 1px solid #fff;
     }
     div.cell details.above-input > summary {
       background-color: #111;
@@ -441,7 +441,7 @@ tt {
   top: 1.5rem;
   z-index: 2;
   background-color: rgba(240, 238, 229, 0.5);
-  border: 2px solid rgba(204, 204, 204, 0.5);
+  border: 1px solid rgba(204, 204, 204, 0.5);
   border-radius: 50px;
   font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
   backdrop-filter: blur(10px);
@@ -674,7 +674,7 @@ tt {
       display: none;
     }
 
-    border-bottom: 2px solid var(--grey-border-color);
+    border-bottom: 1px solid var(--grey-border-color);
     margin: 0 0 4rem 0;
     padding: 0 0 1rem 0;
     font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
@@ -746,7 +746,7 @@ tt {
 
 .main-index {
   h1 {
-    border-bottom: 2px solid var(--grey-border-color);
+    border-bottom: 1px solid var(--grey-border-color);
     margin: 0 0 2rem 0;
     padding: 0 0 1rem 0;
   }
@@ -925,7 +925,7 @@ tt {
     padding: 0 1rem 0.5rem 1rem;
     page-break-inside: avoid;
     box-shadow: unset !important;
-    border: 2px solid var(--note-title-color);
+    border: 1px solid var(--note-title-color);
 
     .admonition-title {
       position: relative;
@@ -1249,7 +1249,7 @@ blockquote {
     margin: 0;
     li {
       padding: 0.5rem 1rem;
-      border: 2px solid #ddd;
+      border: 1px solid #ddd;
       font-size: 0.8rem;
       margin: 0.5rem 0;
       display: flex;
@@ -1609,8 +1609,8 @@ dl.attribute {
   display: flex;
   justify-content: space-between;
   padding: 40px 0px;
-  border-top: 2px solid var(--grey-border-color);
-  border-bottom: 2px solid var(--grey-border-color);
+  border-top: 1px solid var(--grey-border-color);
+  border-bottom: 1px solid var(--grey-border-color);
 }
 
 .prev-next-area a p.prev-next-title {
