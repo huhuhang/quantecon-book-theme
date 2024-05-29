@@ -404,16 +404,6 @@ pre {
     "Microsoft Yahei" !important;
 }
 
-.prev-next-area {
-  display: flex;
-  justify-content: space-between;
-  padding: 50px 0px;
-}
-
-.prev-next-area a p.prev-next-title {
-  text-decoration: unset !important;
-}
-
 cite,
 code,
 tt {
@@ -1613,5 +1603,30 @@ dl.attribute {
 }
 
 .giscus {
-  margin-top: 20px !important;
+  padding-top: 40px;
+}
+
+.prev-next-area {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0px;
+  border-top: 2px solid var(--grey-border-color);
+  border-bottom: 2px solid var(--grey-border-color);
+}
+
+.prev-next-area a p.prev-next-title {
+  text-decoration: unset !important;
+}
+
+.prev-next-area a.left-prev {
+  margin-right: auto;
+}
+
+.prev-next-area a.right-next {
+  margin-left: auto;
+}
+
+.buymecoffee {
+  margin: 40px 0;
+  padding: 5px;
 }
