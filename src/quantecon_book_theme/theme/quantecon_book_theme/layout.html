@@ -87,7 +87,6 @@ block content %}
           %}
           <div class="qe-page__toc-header">导航</div>
           {%- endif %}
-
           <nav id="bd-toc-nav" class="qe-page__toc-nav">
             {{ page_toc }}
             <p class="logo">
@@ -115,10 +114,20 @@ block content %}
               {% endif %} {% endif %}
             </p>
           </nav>
-
           <div class="qe-page__toc-footer">
-            <p style="font-size: 10px;display: inline-block;color: #555;">推荐安装 <a target="_blank" href="https://getvm.io/zh">GetVM</a> 扩展，使用其提供的 <a target="_blank" href="https://getvm.io/zh/templates/notebook">Jupyter Notebook</a> 模板进行练习</p>
-            <a target="_blank" href="https://getvm.io/zh"><img alt="Open in GetVM" src="https://file.labex.io/static/open-in-getvm.svg" style="float: left;"></a></div>
+            {%- if next %}
+            <a
+              class="right-next"
+              href="{{ next.link|e }}"
+              title="{{ _('next page') }}"
+            >
+              <div class="prev-next-info">
+                <p class="prev-next-subtitle">{{ _("下一章") }}</p>
+                <p class="prev-next-title">{{ next_title or next.title }}</p>
+              </div>
+            </a>
+            {%- endif %}
+          </div>
         </div>
       </div>
 
@@ -127,44 +136,73 @@ block content %}
           <p class="qe-page__header-heading">
             <a href="{{ master_url }}">{{ docstitle | e }}</a>
           </p>
-
           <p class="qe-page__header-subheading">{{ pagetitle | e }}</p>
         </div>
-
         <p class="qe-page__header-authors">{{ author }}</p>
       </div>
       <!-- .page__header -->
-
+      <div style="margin: 10px 0">
+        <p style="font-size: 12px; display: inline-block; color: #555">
+          推荐安装
+          <a target="_blank" href="https://getvm.io/zh">GetVM</a>
+          浏览器扩展，使用其提供的
+          <a target="_blank" href="https://getvm.io/zh/templates/notebook"
+            >Jupyter Notebook</a
+          >
+          在线环境进行代码实践。
+        </p>
+      </div>
       {% block docs_main %}
       <main class="qe-page__content" role="main">
         {% block docs_body %}
         <div>{% block body %} {% endblock %}</div>
         {% endblock %}
-        <div class="buymecoffee alert alert-success" role="alert" style="text-align: center;">
-          <p>如果你觉得这些内容对你有帮助，可以通过 <a class="reference external" href="https://cdn.jsdelivr.net/gh/huhuhang/cdn@master/images/2024/04/1711962409258.jpg">微信赞赏码</a> 或者 <a class="reference external" href="https://www.buymeacoffee.com/5ve3dkl">Buy Me a Coffee</a> 请我喝杯咖啡。</p>
+        <div
+          class="buymecoffee alert alert-success"
+          role="alert"
+          style="text-align: center"
+        >
+          <p>
+            如果你觉得这些内容对你有帮助，可以通过
+            <a
+              class="reference external"
+              href="https://cdn.jsdelivr.net/gh/huhuhang/cdn@master/images/2024/04/1711962409258.jpg"
+              >微信赞赏码</a
+            >
+            或者
+            <a
+              class="reference external"
+              href="https://www.buymeacoffee.com/5ve3dkl"
+              >Buy Me a Coffee</a
+            >
+            请我喝杯咖啡。
+          </p>
         </div>
         <div class="prev-next-area">
           {%- if prev %}
-            <a class="left-prev"
-               href="{{ prev.link|e }}"
-               title="{{ _('previous page') }}">
-              <i class="fa-solid fa-angle-left"></i>
-              <div class="prev-next-info">
-                <p class="prev-next-subtitle">{{ _("上一章") }}</p>
-                <p class="prev-next-title">{{ prev_title or prev.title }}</p>
-              </div>
-            </a>
-          {%- endif %}
-          {%- if next %}
-            <a class="right-next"
-               href="{{ next.link|e }}"
-               title="{{ _('next page') }}">
-              <div class="prev-next-info">
-                <p class="prev-next-subtitle">{{ _("下一章") }}</p>
-                <p class="prev-next-title">{{ next_title or next.title }}</p>
-              </div>
-              <i class="fa-solid fa-angle-right"></i>
-            </a>
+          <a
+            class="left-prev"
+            href="{{ prev.link|e }}"
+            title="{{ _('previous page') }}"
+          >
+            <i class="fa-solid fa-angle-left"></i>
+            <div class="prev-next-info">
+              <p class="prev-next-subtitle">{{ _("上一章") }}</p>
+              <p class="prev-next-title">{{ prev_title or prev.title }}</p>
+            </div>
+          </a>
+          {%- endif %} {%- if next %}
+          <a
+            class="right-next"
+            href="{{ next.link|e }}"
+            title="{{ _('next page') }}"
+          >
+            <div class="prev-next-info">
+              <p class="prev-next-subtitle">{{ _("下一章") }}</p>
+              <p class="prev-next-title">{{ next_title or next.title }}</p>
+            </div>
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
           {%- endif %}
         </div>
         <div class="giscus"></div>
@@ -283,14 +321,18 @@ block content %}
   ></script>
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16540540124">
-  </script>
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=AW-16540540124"
+  ></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-    gtag('config', 'AW-16540540124');
+    gtag("config", "AW-16540540124");
   </script>
 
   {%- block scripts_end %} {%- endblock %} {%- endblock %} {% block docs_toc %}
