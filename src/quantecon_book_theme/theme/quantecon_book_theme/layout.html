@@ -114,6 +114,7 @@ block content %}
               {% endif %} {% endif %}
             </p>
           </nav>
+          <a href="#top"><i class="fa-solid fa-circle-arrow-up"></i></a>
           <div class="qe-page__toc-footer">
             {%- if next %}
             <a
@@ -141,22 +142,24 @@ block content %}
         <p class="qe-page__header-authors">{{ author }}</p>
       </div>
       <!-- .page__header -->
-      <div style="margin: 10px 0">
-        <p style="font-size: 12px; display: inline-block; color: #555">
-          推荐安装
-          <a target="_blank" href="https://getvm.io/zh">GetVM</a>
-          浏览器扩展，使用其提供的
-          <a target="_blank" href="https://getvm.io/zh/templates/notebook"
-            >Jupyter Notebook</a
-          >
-          在线环境进行代码实践。
-        </p>
-      </div>
       {% block docs_main %}
       <main class="qe-page__content" role="main">
         {% block docs_body %}
         <div>{% block body %} {% endblock %}</div>
         {% endblock %}
+
+        <div>
+          <p style="font-size: 13px; display: inline-block; color: #555">
+            推荐安装
+            <a target="_blank" href="https://getvm.io/zh">GetVM</a>
+            浏览器扩展，使用其提供的
+            <a target="_blank" href="https://getvm.io/zh/templates/notebook"
+              >Jupyter Notebook</a
+            >
+            在线环境进行代码实践。
+          </p>
+        </div>
+
         <div
           class="buymecoffee alert alert-success"
           role="alert"
@@ -249,7 +252,9 @@ block content %}
           with_home_page=theme_home_page_in_toc) }}
         </nav>
 
-        <div class="qe-sidebar__footer"></div>
+        <div class="qe-sidebar__footer">
+          <p>动手实战人工智能</p>
+        </div>
       </div>
       <!-- .sidebar -->
       {% endblock %}
