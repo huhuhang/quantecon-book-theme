@@ -87,14 +87,16 @@ block content %}
           %}
           <div class="qe-page__toc-header alert alert-light">
             导航
-            <nav id="bd-toc-nav" class="qe-page__toc-nav">
-              {{ page_toc }}
-            </nav>
+            <nav id="bd-toc-nav" class="qe-page__toc-nav">{{ page_toc }}</nav>
           </div>
           {%- endif %}
           <div class="qe-page__toc-footer">
             <div class="d-grid gap-2">
-              <button class="btn btn-light alert alert-light" type="button">
+              <button
+                class="btn btn-light alert alert-light"
+                style="width: 100%; margin: 0"
+                type="button"
+              >
                 <a href="#top"
                   ><i class="fa-solid fa-circle-arrow-up"></i> 返回顶部</a
                 >
