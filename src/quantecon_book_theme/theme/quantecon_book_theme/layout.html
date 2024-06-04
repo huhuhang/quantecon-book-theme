@@ -82,61 +82,64 @@ block content %}
   <div class="qe-main">
     <div class="qe-page" id="{{pagename}}">
       <div class="qe-page__toc">
-        <div class="inner alert alert-light">
+        <div class="inner">
           {% set page_toc = generate_toc_html() %} {%- if page_toc | length >= 1
           %}
-          <div class="qe-page__toc-header">导航</div>
+          <div class="qe-page__toc-header alert alert-light">
+            导航
+            <nav id="bd-toc-nav" class="qe-page__toc-nav">
+              {{ page_toc }}
+              <p class="logo">
+                {% if logo %} {% if theme_header_organisation_url %}
+                <a href="{{theme_header_organisation_url}}"
+                  ><img
+                    src="{{ pathto('_static/' + logo, 1) }}"
+                    class="logo logo-img"
+                    alt="logo"
+                /></a>
+                {% if theme_dark_logo %}
+                <a href="{{theme_header_organisation_url}}"
+                  ><img
+                    src="{{ pathto('_static/' + theme_dark_logo, 1) }}"
+                    class="dark-logo-img"
+                    alt="logo"
+                /></a>
+                {% endif %} {% else %}
+                <a href="{{ master_url }}"
+                  ><img
+                    src="{{ pathto('_static/' + logo, 1) }}"
+                    class="logo"
+                    alt="logo"
+                /></a>
+                {% endif %} {% endif %}
+              </p>
+            </nav>
+          </div>
           {%- endif %}
-          <nav id="bd-toc-nav" class="qe-page__toc-nav">
-            {{ page_toc }}
-            <p class="logo">
-              {% if logo %} {% if theme_header_organisation_url %}
-              <a href="{{theme_header_organisation_url}}"
-                ><img
-                  src="{{ pathto('_static/' + logo, 1) }}"
-                  class="logo logo-img"
-                  alt="logo"
-              /></a>
-              {% if theme_dark_logo %}
-              <a href="{{theme_header_organisation_url}}"
-                ><img
-                  src="{{ pathto('_static/' + theme_dark_logo, 1) }}"
-                  class="dark-logo-img"
-                  alt="logo"
-              /></a>
-              {% endif %} {% else %}
-              <a href="{{ master_url }}"
-                ><img
-                  src="{{ pathto('_static/' + logo, 1) }}"
-                  class="logo"
-                  alt="logo"
-              /></a>
-              {% endif %} {% endif %}
-            </p>
-          </nav>
-
-        </div>
-        <div class="qe-page__toc-footer">
-          <div class="d-grid gap-2">
-            {%- if next %}
-            <button class="btn btn-light" type="button">
-              <a
-                class="right-next"
-                href="{{ next.link|e }}"
-                title="{{ _('next page') }}"
-              >
-                <div class="prev-next-info">
-                  <p class="prev-next-subtitle">{{ _("下一章") }}</p>
-                  <p class="prev-next-title">
-                    {{ next_title or next.title }}
-                  </p>
-                </div>
-              </a>
-            </button>
-            {%- endif %}
-            <button class="btn btn-light" type="button">
-              <a href="#top"><i class="fa-solid fa-circle-arrow-up"></i> 返回顶部</a>
-            </button>
+          <div class="qe-page__toc-footer">
+            <div class="d-grid gap-2">
+              {%- if next %}
+              <button class="btn btn-light" type="button">
+                <a
+                  class="right-next"
+                  href="{{ next.link|e }}"
+                  title="{{ _('next page') }}"
+                >
+                  <div class="prev-next-info">
+                    <p class="prev-next-subtitle">{{ _("下一章") }}</p>
+                    <p class="prev-next-title">
+                      {{ next_title or next.title }}
+                    </p>
+                  </div>
+                </a>
+              </button>
+              {%- endif %}
+              <button class="btn btn-light" type="button">
+                <a href="#top"
+                  ><i class="fa-solid fa-circle-arrow-up"></i> 返回顶部</a
+                >
+              </button>
+            </div>
           </div>
         </div>
       </div>
