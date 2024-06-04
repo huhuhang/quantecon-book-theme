@@ -82,7 +82,7 @@ block content %}
   <div class="qe-main">
     <div class="qe-page" id="{{pagename}}">
       <div class="qe-page__toc">
-        <div class="inner">
+        <div class="inner alert alert-light">
           {% set page_toc = generate_toc_html() %} {%- if page_toc | length >= 1
           %}
           <div class="qe-page__toc-header">导航</div>
@@ -256,7 +256,6 @@ block content %}
         </nav>
 
         <div class="qe-sidebar__footer">
-          <p>动手实战人工智能</p>
         </div>
       </div>
       <!-- .sidebar -->
