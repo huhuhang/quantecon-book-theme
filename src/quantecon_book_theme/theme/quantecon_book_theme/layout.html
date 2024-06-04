@@ -114,24 +114,32 @@ block content %}
               {% endif %} {% endif %}
             </p>
           </nav>
-          <a href="#top"><i class="fa-solid fa-circle-arrow-up"></i></a>
-          <div class="qe-page__toc-footer">
+
+        </div>
+        <div class="qe-page__toc-footer">
+          <div class="d-grid gap-2">
             {%- if next %}
-            <a
-              class="right-next"
-              href="{{ next.link|e }}"
-              title="{{ _('next page') }}"
-            >
-              <div class="prev-next-info">
-                <p class="prev-next-subtitle">{{ _("下一章") }}</p>
-                <p class="prev-next-title">{{ next_title or next.title }}</p>
-              </div>
-            </a>
+            <button class="btn btn-light" type="button">
+              <a
+                class="right-next"
+                href="{{ next.link|e }}"
+                title="{{ _('next page') }}"
+              >
+                <div class="prev-next-info">
+                  <p class="prev-next-subtitle">{{ _("下一章") }}</p>
+                  <p class="prev-next-title">
+                    {{ next_title or next.title }}
+                  </p>
+                </div>
+              </a>
+            </button>
             {%- endif %}
+            <button class="btn btn-light" type="button">
+              <a href="#top"><i class="fa-solid fa-circle-arrow-up"></i> 返回顶部</a>
+            </button>
           </div>
         </div>
       </div>
-
       <div class="qe-page__header alert alert-light">
         <div class="qe-page__header-copy">
           <p class="qe-page__header-heading">
@@ -255,8 +263,7 @@ block content %}
           with_home_page=theme_home_page_in_toc) }}
         </nav>
 
-        <div class="qe-sidebar__footer">
-        </div>
+        <div class="qe-sidebar__footer"></div>
       </div>
       <!-- .sidebar -->
       {% endblock %}
