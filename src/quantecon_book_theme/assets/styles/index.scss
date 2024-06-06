@@ -294,6 +294,9 @@ body {
     .cell_output .output.stream,
     .cell_output .output.stderr {
       border: 0rem;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      box-shadow: none;
     }
 
     .alert {
@@ -1174,6 +1177,11 @@ div.cell {
 
   div.cell_output {
     padding-right: 0;
+  }
+
+  div.cell_output::before {
+    content: "运行输出";
+    font-size: 80%;
   }
 
   &.tag_output_scroll,
