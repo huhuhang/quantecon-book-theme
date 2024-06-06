@@ -65,8 +65,8 @@
   content="{% if pagetitle %}{{ pagetitle | e }}{% else %}{{ docstitle | e }}{% endif %}"
 />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="{{ pageurl | e }}" />
-<meta property="og:image" content="{{ theme_og_logo_url | e }}" />
+<meta property="og:url" content="https://aibydoing.com/{{pagename}}" />
+<meta property="og:image" content="{{ theme_twitter_logo_url | e }}" />
 <meta property="og:description" content="{{ theme_description | e }}" />
 <meta property="og:site_name" content="{{ docstitle | e }}" />
 <meta name="theme-color" content="#ffffff" />
@@ -110,7 +110,9 @@ block content %}
           <p class="qe-page__header-heading">
             <a href="{{ master_url }}">{{ docstitle | e }}</a>
           </p>
-          <p class="qe-page__header-subheading">{{ pagetitle | e }}</p>
+          <p class="qe-page__header-subheading">
+            <a href="https://aibydoing.com/{{pagename}}">{{ pagetitle | e }}</a>
+          </p>
         </div>
         <p class="qe-page__header-authors">{{ author }}</p>
       </div>
@@ -198,9 +200,7 @@ block content %}
       <footer class="qe-page__footer">
         <p xmlns:cc="http://creativecommons.org/ns#">
           本作品由
-          <a href="https://twitter.com/huhuhang" target="_blank"
-            >{{ author }}</a
-          >
+          <a href="https://huhuhang.com" target="_blank">{{ author }}</a>
           创作，基于
           <a
             href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans"
