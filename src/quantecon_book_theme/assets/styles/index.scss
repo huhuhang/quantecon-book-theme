@@ -458,6 +458,7 @@ tt {
   border-radius: 15px;
   font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   &__inner {
     max-width: calc(1320px + 6rem);
