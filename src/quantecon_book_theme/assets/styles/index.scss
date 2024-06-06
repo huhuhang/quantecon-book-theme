@@ -106,7 +106,14 @@ body {
   }
 
   div.cell div.cell_input {
-    border: 1px solid var(--grey-border-color);
+    border: unset;
+  }
+
+  .cell_output .output.text_plain,
+  .cell_output .output.stream,
+  .cell_output .output.stderr {
+    border: unset;
+    background-color: #f3f4f5;
   }
 
   &.dark-theme {
@@ -440,12 +447,11 @@ tt {
   transform: translateX(-50%);
   top: 1.5rem;
   z-index: 2;
-  background-color: rgba(240, 238, 229, 0.5);
-  border: 1px solid rgba(204, 204, 204, 0.5);
-  border-radius: 50px;
+  background-color: rgba(252, 252, 253, 0.5);
+  border: 1px solid rgba(233, 236, 239, 0.5);
+  border-radius: 15px;
   font-family: "Smiley Sans Oblique", -apple-system, "Microsoft Yahei" !important;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 
   &__inner {
     max-width: calc(1320px + 6rem);
@@ -759,14 +765,13 @@ tt {
   height: 100vh;
   overflow: scroll;
   position: fixed;
-  background-color: rgba(240, 238, 229, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: #fcfcfd;
+  border-right: 1px solid #e9ecef;
 
   @media (max-width: 1340px) {
     box-shadow: 10px 10px 5px 9999px rgba(255, 255, 255, 0.8);
-    width: 300px;
-    padding-top: 6rem;
+    width: 80%;
+    padding-top: 8rem;
   }
 
   @media (min-width: 1439px) {
@@ -999,6 +1004,10 @@ tt {
 
   div.cell div.highlight {
     margin-bottom: 0em;
+  }
+
+  .highlight .si {
+    font-style: normal;
   }
 
   .cell .input,

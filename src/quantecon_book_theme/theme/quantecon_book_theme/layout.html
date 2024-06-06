@@ -118,12 +118,17 @@ block content %}
       {% block docs_main %}
       <main class="qe-page__content" role="main">
         {% block docs_body %}
-        <div>{% block body %} {% endblock %}</div>
-        {% endblock %}
-
-        <!-- getvm -->
-        <div>
-          <p style="font-size: 13px; display: inline-block; color: #555">
+        <div class="alert alert-light">
+          {% block body %} {% endblock %}
+          <!-- getvm -->
+          <p
+            style="
+              font-size: 13px;
+              display: inline-block;
+              color: #555;
+              text-align: center;
+            "
+          >
             推荐安装
             <a target="_blank" href="https://getvm.io/zh">GetVM</a>
             浏览器扩展，使用其提供的
@@ -132,8 +137,9 @@ block content %}
             >
             在线环境进行代码实践。
           </p>
+          <!-- getvm -->
         </div>
-        <!-- getvm -->
+        {% endblock %}
         <!-- buymecoffee -->
         <div
           class="buymecoffee alert alert-secondary"
@@ -278,9 +284,6 @@ block content %}
           </li>
           <li data-tippy-content="减小字体大小" class="btn__minus">
             <i data-feather="minus-circle"></i>
-          </li>
-          <li data-tippy-content="深色模式" class="btn__contrast">
-            <i data-feather="sunset"></i>
           </li>
         </ul>
       </div>
