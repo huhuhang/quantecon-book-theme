@@ -114,6 +114,9 @@ body {
   .cell_output .output.stderr {
     border: unset;
     background-color: #f3f4f5;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    box-shadow: none;
   }
 
   &.dark-theme {
@@ -1182,6 +1185,9 @@ div.cell {
   div.cell_output::before {
     content: "运行输出";
     font-size: 80%;
+    background-color: #f3f4f5;
+    padding: 2px 5px;
+    border-radius: 0.25rem;
   }
 
   &.tag_output_scroll,
