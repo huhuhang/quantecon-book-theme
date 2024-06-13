@@ -15,8 +15,8 @@ $breakpoint-md: 768px;
 $breakpoint-sm: 576px;
 
 $color-primary: #ae5630;
-$color-secondary: #8045e5;
-$color-body: #444444;
+$color-secondary: #b56cfd;
+$color-body: #29261b;
 
 @import "normalize";
 @import "html5boilerplate";
@@ -85,7 +85,7 @@ body {
   line-height: 1.5;
   font-weight: 400;
   padding-top: 0px;
-  color: #29261b;
+  color: $color-body;
   font-family: "Merriweather", "LXGW WenKai Lite", -apple-system,
     "Microsoft Yahei";
   text-rendering: optimizeLegibility;
@@ -1464,5 +1464,5 @@ dl.attribute {
   margin: 40px 0;
   padding: 5px;
   text-align: center;
-  background-color: #ae56304d;
+  background-color: #b56cfd4d;
 }
