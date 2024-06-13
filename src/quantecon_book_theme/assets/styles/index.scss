@@ -15,7 +15,7 @@ $breakpoint-md: 768px;
 $breakpoint-sm: 576px;
 
 $color-primary: #ae5630;
-$color-secondary: #d8655e;
+$color-secondary: #8045e5;
 $color-body: #444444;
 
 @import "normalize";
@@ -216,7 +216,7 @@ a:visited {
 }
 
 a:hover {
-  color: $color-primary !important;
+  color: $color-secondary !important;
   text-decoration: unset !important;
 }
 
@@ -1444,8 +1444,12 @@ dl.attribute {
 }
 
 .prev-next-area a p.prev-next-title {
-  color: $color-primary !important;
+  color: #29261b !important;
   text-decoration: unset !important;
+}
+
+.prev-next-area a p.prev-next-title:hover {
+  color: $color-secondary !important;
 }
 
 .prev-next-area a.left-prev {
