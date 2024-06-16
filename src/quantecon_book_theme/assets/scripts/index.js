@@ -203,9 +203,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function setFontSize() {
     // Get font size from local storage
     var toolbarFont = localStorage.toolbarFont;
-    // 默认值为 -1
+    // 默认值为 1
     if (toolbarFont == null) {
-      toolbarFont = -1;
+      toolbarFont = 1;
     }
     if (toolbarFont == 1) {
       $("html").addClass("font-plus");
