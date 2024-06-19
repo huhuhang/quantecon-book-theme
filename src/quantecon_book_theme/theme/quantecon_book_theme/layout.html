@@ -86,7 +86,6 @@ block content %}
           {% set page_toc = generate_toc_html() %} {%- if page_toc | length >= 1
           %}
           <div class="qe-page__toc-header alert alert-light">
-            导航
             <nav id="bd-toc-nav" class="qe-page__toc-nav">{{ page_toc }}</nav>
           </div>
           {%- endif %}
