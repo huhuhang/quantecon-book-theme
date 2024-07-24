@@ -47,6 +47,15 @@
 <meta name="author" context="{{ author | e }}" />
 <meta name="keywords" content="{{ theme_keywords | e }}" />
 <meta name="description" content="{{ theme_description | e }}" />
+<link rel="canonical" href="https://aibydoing.com/{{pagename}}" />
+
+<!-- sitemap -->
+<link
+  rel="sitemap"
+  type="application/xml"
+  title="Sitemap"
+  href="https://aibydoing.com/sitemap.xml"
+/>
 
 <!-- Twitter tags -->
 <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +73,7 @@
   property="og:title"
   content="{% if pagetitle %}{{ pagetitle | e }}{% else %}{{ docstitle | e }}{% endif %}"
 />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
 <meta property="og:url" content="https://aibydoing.com/{{pagename}}" />
 <meta property="og:image" content="{{ theme_twitter_logo_url | e }}" />
 <meta property="og:description" content="{{ theme_description | e }}" />
