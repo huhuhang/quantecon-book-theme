@@ -15,7 +15,7 @@ $breakpoint-md: 768px;
 $breakpoint-sm: 576px;
 
 $color-primary: #ae5630;
-$color-secondary: #b56cfd;
+$color-secondary: #b66cff;
 $color-body: #29261b;
 
 @import "normalize";
@@ -207,15 +207,15 @@ li {
 }
 
 a {
-  color: $color-primary;
+  color: $color-primary !important;
   text-decoration: none;
   transition: all 0.15s linear;
   overflow-wrap: break-word;
 }
 
-a:visited {
-  color: unset !important;
-}
+// a:visited {
+//   color: unset !important;
+// }
 
 a:hover {
   color: $color-secondary !important;
