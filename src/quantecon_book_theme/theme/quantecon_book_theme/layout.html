@@ -1,4 +1,43 @@
-{%- extends "pydata_sphinx_theme/layout.html" %} {% block css %}
+{%- extends "pydata_sphinx_theme/layout.html" %}
+
+{%- set i18n = {
+'zh': {
+'back_to_top': '返回顶部',
+'previous': '上一章',
+'next': '下一章',
+'share_tips': '欢迎分享',
+'share_tips_text': '本文链接到你的社交账号、博客、论坛等。更多的外链会增加搜索引擎对本站收录的权重，从而让更多人看到这些内容。',
+'coffee_text': '如果你觉得这些内容对你有帮助，可以',
+'buy_coffee': '请我喝杯咖啡',
+'toc': '目录',
+'search': '搜索',
+'fullscreen': '全屏',
+'increase_font': '增加字体大小',
+'decrease_font': '减小字体大小',
+'home': '主页'
+},
+'en': {
+'back_to_top': 'Back to Top',
+'previous': 'Previous',
+'next': 'Next',
+'share_tips': 'Share',
+'share_tips_text': 'this article link to your social media, blog, forum, etc. More external links will increase the
+search engine ranking of this site.',
+'coffee_text': 'If you find this content helpful, you can',
+'buy_coffee': 'buy me a coffee',
+'toc': 'Table of Contents',
+'search': 'Search',
+'fullscreen': 'Fullscreen',
+'increase_font': 'Increase Font Size',
+'decrease_font': 'Decrease Font Size',
+'home': 'Home'
+}
+} -%}
+
+{%- set current_lang = lang|default('en') -%}
+{%- set t = i18n[current_lang] -%}
+
+{% block css %}
 <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -50,29 +89,18 @@
 <link rel="canonical" href="https://aibydoing.com/{{pagename}}" />
 
 <!-- sitemap -->
-<link
-  rel="sitemap"
-  type="application/xml"
-  title="Sitemap"
-  href="https://aibydoing.com/sitemap.xml"
-/>
+<link rel="sitemap" type="application/xml" title="Sitemap" href="https://aibydoing.com/sitemap.xml" />
 
 <!-- Twitter tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@{{ theme_twitter | e }}" />
-<meta
-  name="twitter:title"
-  content="{% if pagetitle %}{{ pagetitle | e }}{% else %}{{ title | e }}{% endif %}"
-/>
+<meta name="twitter:title" content="{% if pagetitle %}{{ pagetitle | e }}{% else %}{{ title | e }}{% endif %}" />
 <meta name="twitter:description" content="{{ theme_description | e }}" />
 <meta name="twitter:creator" content="@{{ theme_twitter | e }}" />
 <meta name="twitter:image" content="{{ theme_twitter_logo_url | e }}" />
 
 <!-- Opengraph tags -->
-<meta
-  property="og:title"
-  content="{% if pagetitle %}{{ pagetitle | e }}{% else %}{{ docstitle | e }}{% endif %}"
-/>
+<meta property="og:title" content="{% if pagetitle %}{{ pagetitle | e }}{% else %}{{ docstitle | e }}{% endif %}" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://aibydoing.com/{{pagename}}" />
 <meta property="og:image" content="{{ theme_twitter_logo_url | e }}" />
@@ -85,240 +113,186 @@
 
 {% endblock %} {# Silence the sidebar's, relbar's #} {% block header %}{%
 endblock %} {% block relbar1 %}{% endblock %} {% block relbar2 %}{% endblock %}
-{% block sidebarsourcelink %}{% endblock %} {% block body_tag %} <body{% if
-master_doc==pagename %} class="main-index" {% endif %}> {%- endblock %} {%-
-block content %}
+{% block sidebarsourcelink %}{% endblock %} {% block body_tag %} <body{% if master_doc==pagename %} class="main-index"
+  {% endif %}> {%- endblock %} {%-
+  block content %}
 
-<span id="top"></span>
+  <span id="top"></span>
 
-<div class="qe-wrapper">
-  <div class="qe-main">
-    <div class="qe-page" id="{{pagename}}">
-      <div class="qe-page__toc">
-        <div class="inner">
-          {% set page_toc = generate_toc_html() %} {%- if page_toc | length >= 1
-          %}
-          <div class="qe-page__toc-header alert alert-light">
-            <nav id="bd-toc-nav" class="qe-page__toc-nav">{{ page_toc }}</nav>
-          </div>
-          {%- endif %}
-          <div class="qe-page__toc-footer">
-            <div class="d-grid gap-2">
-              <a href="#top">
-                <button
-                  class="btn btn-light alert alert-light"
-                  style="width: 100%; margin: 0"
-                  type="button"
-                >
-                  <i class="fa-solid fa-circle-arrow-up"></i> 返回顶部
-                </button>
-              </a>
+  <div class="qe-wrapper">
+    <div class="qe-main">
+      <div class="qe-page" id="{{pagename}}">
+        <div class="qe-page__toc">
+          <div class="inner">
+            {% set page_toc = generate_toc_html() %} {%- if page_toc | length >= 1
+            %}
+            <div class="qe-page__toc-header alert alert-light">
+              <nav id="bd-toc-nav" class="qe-page__toc-nav">{{ page_toc }}</nav>
+            </div>
+            {%- endif %}
+            <div class="qe-page__toc-footer">
+              <div class="d-grid gap-2">
+                <a href="#top">
+                  <button class="btn btn-light alert alert-light" style="width: 100%; margin: 0" type="button">
+                    <i class="fa-solid fa-circle-arrow-up"></i> {{ t.back_to_top }}
+                  </button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="qe-page__header alert alert-light">
-        <div class="qe-page__header-copy">
-          <p class="qe-page__header-heading">
-            <a href="{{ master_url }}">{{ docstitle | e }}</a>
-          </p>
-          <p class="qe-page__header-subheading">
-            <a href="https://aibydoing.com/{{pagename}}">{{ pagetitle | e }}</a>
-          </p>
+        <div class="qe-page__header alert alert-light">
+          <div class="qe-page__header-copy">
+            <p class="qe-page__header-heading">
+              <a href="{{ master_url }}">{{ docstitle | e }}</a>
+            </p>
+            <p class="qe-page__header-subheading">
+              <a href="https://aibydoing.com/{{pagename}}">{{ pagetitle | e }}</a>
+            </p>
+          </div>
+          <p class="qe-page__header-authors">{{ author }}</p>
         </div>
-        <p class="qe-page__header-authors">{{ author }}</p>
-      </div>
-      <!-- .page__header -->
-      {% block docs_main %}
-      <main class="qe-page__content" role="main">
-        {% block docs_body %}
-        <div class="main-content alert alert-light">
-          {% block body %} {% endblock %}
-          <hr />
-          <!-- share tips -->
-          <p
-            style="
+        <!-- .page__header -->
+        {% block docs_main %}
+        <main class="qe-page__content" role="main">
+          {% block docs_body %}
+          <div class="main-content alert alert-light">
+            {% block body %} {% endblock %}
+            <hr />
+            <!-- share tips -->
+            <p style="
               font-size: 13px;
               display: inline-block;
               color: #555;
               margin: unset;
-            "
-          >
-            ○ 欢迎分享<a href="https://aibydoing.com/{{pagename}}">本文链接</a
-            >到你的社交账号、博客、论坛等。更多的外链会增加搜索引擎对本站收录的权重，从而让更多人看到这些内容。
-          </p>
-          <!-- share tips -->
-        </div>
+            ">
+              ○ {{ t.share_tips }}<a href="https://aibydoing.com/{{pagename}}">{{ t.share_tips_text }}</a>
+            </p>
+            <!-- share tips -->
+          </div>
+          {% endblock %}
+          <!-- buymecoffee -->
+          <div class="buymecoffee alert" role="alert">
+            <p>
+              {{ t.coffee_text }}
+              <a class="reference external" href="/buy-me-a-coffee">{{ t.buy_coffee }} <i
+                  class="fa-solid fa-mug-hot"></i></a>
+            </p>
+          </div>
+          <!-- buymecoffee -->
+          <div class="prev-next-area alert alert-light">
+            {%- if prev %}
+            <a class="left-prev" href="{{ prev.link|e }}" title="{{ _('previous page') }}">
+              <i class="fa-solid fa-angle-left"></i>
+              <div class="prev-next-info">
+                <p class="prev-next-subtitle">{{ t.previous }}</p>
+                <p class="prev-next-title">{{ prev_title or prev.title }}</p>
+              </div>
+            </a>
+            {%- endif %} {%- if next %}
+            <a class="right-next" href="{{ next.link|e }}" title="{{ _('next page') }}">
+              <div class="prev-next-info">
+                <p class="prev-next-subtitle">{{ t.next }}</p>
+                <p class="prev-next-title">{{ next_title or next.title }}</p>
+              </div>
+              <i class="fa-solid fa-angle-right"></i>
+            </a>
+            {%- endif %}
+          </div>
+          <div class="giscus alert alert-light"></div>
+        </main>
+        <!-- .page__content -->
         {% endblock %}
-        <!-- buymecoffee -->
-        <div class="buymecoffee alert" role="alert">
-          <p>
-            如果你觉得这些内容对你有帮助，可以
-            <a class="reference external" href="/buy-me-a-coffee"
-              >请我喝杯咖啡 <i class="fa-solid fa-mug-hot"></i
-            ></a>
+
+        <footer class="qe-page__footer">
+          <p xmlns:cc="http://creativecommons.org/ns#">
+            本作品由
+            <a href="https://huhuhang.com" target="_blank">{{ author }}</a>
+            创作，采用
+            <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans" target="_blank"
+              rel="license noopener noreferrer" style="display: inline-block">署名-非商业性使用-禁止演绎 4.0 国际</a>
+            及
+            <a href="https://aibydoing.com/intro#id2" target="_blank" rel="license noopener noreferrer"
+              style="display: inline-block">补充许可协议</a>
           </p>
-        </div>
-        <!-- buymecoffee -->
-        <div class="prev-next-area alert alert-light">
-          {%- if prev %}
-          <a
-            class="left-prev"
-            href="{{ prev.link|e }}"
-            title="{{ _('previous page') }}"
-          >
-            <i class="fa-solid fa-angle-left"></i>
-            <div class="prev-next-info">
-              <p class="prev-next-subtitle">{{ _("上一章") }}</p>
-              <p class="prev-next-title">{{ prev_title or prev.title }}</p>
-            </div>
-          </a>
-          {%- endif %} {%- if next %}
-          <a
-            class="right-next"
-            href="{{ next.link|e }}"
-            title="{{ _('next page') }}"
-          >
-            <div class="prev-next-info">
-              <p class="prev-next-subtitle">{{ _("下一章") }}</p>
-              <p class="prev-next-title">{{ next_title or next.title }}</p>
-            </div>
-            <i class="fa-solid fa-angle-right"></i>
-          </a>
+        </footer>
+        <!-- .page__footer -->
+      </div>
+      <!-- .page -->
+
+      {% block docs_sidebar %} {% if theme_persistent_sidebar is defined and
+      theme_persistent_sidebar is sameas true %}
+      <div class="qe-sidebar bd-sidebar inactive persistent" id="site-navigation">
+        {%- else %}
+        <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
           {%- endif %}
+
+          <div class="qe-sidebar__header">目录</div>
+
+          <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+            {{ sbt_generate_toctree_html(include_item_names=False,
+            with_home_page=theme_home_page_in_toc) }}
+          </nav>
+
+          <div class="qe-sidebar__footer"></div>
         </div>
-        <div class="giscus alert alert-light"></div>
-      </main>
-      <!-- .page__content -->
-      {% endblock %}
-
-      <footer class="qe-page__footer">
-        <p xmlns:cc="http://creativecommons.org/ns#">
-          本作品由
-          <a href="https://huhuhang.com" target="_blank">{{ author }}</a>
-          创作，采用
-          <a
-            href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans"
-            target="_blank"
-            rel="license noopener noreferrer"
-            style="display: inline-block"
-            >署名-非商业性使用-禁止演绎 4.0 国际</a
-          >
-          及
-          <a
-            href="https://aibydoing.com/intro#id2"
-            target="_blank"
-            rel="license noopener noreferrer"
-            style="display: inline-block"
-            >补充许可协议</a
-          >
-        </p>
-      </footer>
-      <!-- .page__footer -->
-    </div>
-    <!-- .page -->
-
-    {% block docs_sidebar %} {% if theme_persistent_sidebar is defined and
-    theme_persistent_sidebar is sameas true %}
-    <div class="qe-sidebar bd-sidebar inactive persistent" id="site-navigation">
-      {%- else %}
-      <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
-        {%- endif %}
-
-        <div class="qe-sidebar__header">目录</div>
-
-        <nav
-          class="qe-sidebar__nav"
-          id="qe-sidebar-nav"
-          aria-label="Main navigation"
-        >
-          {{ sbt_generate_toctree_html(include_item_names=False,
-          with_home_page=theme_home_page_in_toc) }}
-        </nav>
-
-        <div class="qe-sidebar__footer"></div>
+        <!-- .sidebar -->
+        {% endblock %}
       </div>
-      <!-- .sidebar -->
-      {% endblock %}
-    </div>
-    <!-- .main -->
+      <!-- .main -->
 
-    <div class="qe-toolbar">
-      <div class="qe-toolbar__inner">
-        <ul class="qe-toolbar__main">
-          <li data-tippy-content="目录" class="btn__sidebar">
-            <i data-feather="menu"></i>
-          </li>
-          <li data-tippy-content="主页" class="btn__home">
-            <a href="https://aibydoing.com"><i data-feather="home"></i></a>
-          </li>
-        </ul>
+      <div class="qe-toolbar">
+        <div class="qe-toolbar__inner">
+          <ul class="qe-toolbar__main">
+            <li data-tippy-content="{{ t.toc }}" class="btn__sidebar">
+              <i data-feather="menu"></i>
+            </li>
+            <li data-tippy-content="{{ t.home }}" class="btn__home">
+              <a href="https://aibydoing.com"><i data-feather="home"></i></a>
+            </li>
+          </ul>
 
-        <ul class="qe-toolbar__links">
-          <li data-tippy-content="全屏" class="btn__fullscreen">
-            <i data-feather="maximize"></i>
-          </li>
-          <li data-tippy-content="搜索" class="btn__search">
-            <form action="{{ pathto('search') }}" method="get">
-              <input
-                type="search"
-                class="form-control"
-                name="q"
-                id="search-input"
-                placeholder="搜索"
-                aria-label="搜索"
-                autocomplete="off"
-                accesskey="k"
-              />
-              <i data-feather="search" id="search-icon"></i>
-            </form>
-          </li>
-          <li data-tippy-content="增加字体大小" class="btn__plus">
-            <i data-feather="plus-circle"></i>
-          </li>
-          <li data-tippy-content="减小字体大小" class="btn__minus">
-            <i data-feather="minus-circle"></i>
-          </li>
-        </ul>
+          <ul class="qe-toolbar__links">
+            <li data-tippy-content="{{ t.fullscreen }}" class="btn__fullscreen">
+              <i data-feather="maximize"></i>
+            </li>
+            <li data-tippy-content="{{ t.search }}" class="btn__search">
+              <form action="{{ pathto('search') }}" method="get">
+                <input type="search" class="form-control" name="q" id="search-input" placeholder="{{ t.search }}"
+                  aria-label="{{ t.search }}" autocomplete="off" accesskey="k" />
+                <i data-feather="search" id="search-icon"></i>
+              </form>
+            </li>
+            <li data-tippy-content="{{ t.increase_font }}" class="btn__plus">
+              <i data-feather="plus-circle"></i>
+            </li>
+            <li data-tippy-content="{{ t.decrease_font }}" class="btn__minus">
+              <i data-feather="minus-circle"></i>
+            </li>
+          </ul>
+        </div>
       </div>
+      <!-- .toolbar -->
     </div>
-    <!-- .toolbar -->
+    <!-- .wrapper-->
+
+    <script src="https://giscus.app/client.js" data-repo="aibydoing/feedback" data-repo-id="R_kgDOKrSOWw"
+      data-category="General" data-category-id="DIC_kwDOKrSOW84CdVV4" data-mapping="og:title" data-strict="0"
+      data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="zh-CN"
+      data-loading="lazy" crossorigin="anonymous" async></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16540540124"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-16540540124");
+    </script>
+
+    {%- block scripts_end %} {%- endblock %} {%- endblock %} {% block docs_toc %}
+    {% endblock %} {%- block footer %} {%- endblock %}
   </div>
-  <!-- .wrapper-->
-
-  <script
-    src="https://giscus.app/client.js"
-    data-repo="aibydoing/feedback"
-    data-repo-id="R_kgDOKrSOWw"
-    data-category="General"
-    data-category-id="DIC_kwDOKrSOW84CdVV4"
-    data-mapping="og:title"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="top"
-    data-theme="light"
-    data-lang="zh-CN"
-    data-loading="lazy"
-    crossorigin="anonymous"
-    async
-  ></script>
-
-  <!-- Google tag (gtag.js) -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=AW-16540540124"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "AW-16540540124");
-  </script>
-
-  {%- block scripts_end %} {%- endblock %} {%- endblock %} {% block docs_toc %}
-  {% endblock %} {%- block footer %} {%- endblock %}
-</div>
