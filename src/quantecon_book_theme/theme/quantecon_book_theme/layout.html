@@ -108,8 +108,12 @@ search engine ranking of this site.',
 <meta property="og:site_name" content="{{ docstitle | e }}" />
 <meta name="theme-color" content="#ffffff" />
 
-<!-- Analytics -->
-<script async src="https://cdn.seline.so/seline.js"></script>
+<!-- Adsense -->
+<script
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5114745371732676"
+  crossorigin="anonymous"
+></script>
 
 {% endblock %} {# Silence the sidebar's, relbar's #} {% block header %}{%
 endblock %} {% block relbar1 %}{% endblock %} {% block relbar2 %}{% endblock %}
@@ -282,15 +286,13 @@ endblock %} {% block relbar1 %}{% endblock %} {% block relbar2 %}{% endblock %}
       data-loading="lazy" crossorigin="anonymous" async></script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16540540124"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NMNTKKG9WB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-      gtag("config", "AW-16540540124");
+      gtag('config', 'G-NMNTKKG9WB');
     </script>
 
     {%- block scripts_end %} {%- endblock %} {%- endblock %} {% block docs_toc %}
